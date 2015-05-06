@@ -12,12 +12,20 @@ end
 
 describe(List) do
 
-	describe("#name") do
+	describe("#description") do
 		it("tells you the description") do
 			list = List.new({:description => "epicodus stuff", :id => nil})
 			expect(list.description()).to(eq("epicodus stuff"))
 		end
 	end
+
+	describe(".all") do
+		it("starts off with no lists") do
+			expect(List.all()).to(eq([]))
+		end
+	end
+		
+
 	# describe(".all") do
 	# 	it("starts off with no lists") do
 	# 		expect(list.description)
