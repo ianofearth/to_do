@@ -24,11 +24,14 @@ describe(List) do
 			expect(List.all()).to(eq([]))
 		end
 	end
-		
 
-	# describe(".all") do
-	# 	it("starts off with no lists") do
-	# 		expect(list.description)
+	describe("#save") do
+		it("lets you save lists to the database") do
+			list = List.new({:description = "epicodus stuff", :id => nil})
+			list.save()
+			expect(List.all()).to eq([list])
+		end
+	end
 
 
 
