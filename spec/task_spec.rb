@@ -26,18 +26,18 @@ describe(Task) do
 		end
 	end
 
-	describe("list_id") do
+	describe("#list_id") do
 		it("lets you read the list ID out") do
 			test_task = Task.new({:description => "learn SQL", :list_id => 1})
 			expect(test_task.list_id()).to(eq(1))
 		end
 	end
 
-	# describe(".all") do
-	# 	it("is empty at first") do
-	# 		expect(Task.all()).to(eq([]))
-	# 	end
-	# end
+	describe(".all") do
+		it("is empty at first") do
+			expect(Task.all()).to(eq([]))
+		end
+	end
 
 
 end
