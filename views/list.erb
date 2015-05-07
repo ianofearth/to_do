@@ -1,0 +1,17 @@
+<!-- i think this is totally fucked -->
+<h1><%= @list.description() %></h1> 
+
+<% if @list.tasks().any?() %>
+	<h3>Here are all the tasks in this list:</h3>
+	<ul>
+		<% @list.tasks().each() do |task| %>
+		<li><%= task.description() %> - due <%= task.due() %> [<a href = "/delete_task/<%= task.id()%>">x</a>]</li>
+		<% end %>
+	</ul>
+
+	<% else %>
+		<p>There are no tasks on this list!</p>
+	<% end %>
+<div>
+	<a href = "/"><button class = "btn">Home</a>
+</div>
