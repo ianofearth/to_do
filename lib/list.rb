@@ -17,6 +17,13 @@ class List
 		lists
 	end
 
+	define_method(:save) do
+		result = DB.exec("INSERT INTO lists (description) VALUES ('#{@description}') RETURNING id;")
+		@id = result.first().fetch("id").to_i()
+	end
 
+	define_method(:==) do |another_list|
+		self.description().==(another_list.description()).&(self.id().==(another_list.id()))
+	end
 
 end

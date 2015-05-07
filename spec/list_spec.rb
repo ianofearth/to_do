@@ -1,14 +1,14 @@
-require('rspec')
-require('pg')
-require('list')
+# require('rspec')  #this functionality is now in spec_helper.rb
+# require('pg')
+# require('list')
 
-DB = PG.connect({:dbname => 'to_do_test'})
+# DB = PG.connect({:dbname => 'to_do_test'})
 
-RSpec.configure do |config|
-	config.after(:each) do 
-		DB.exec("DELETE FROM lists *;")
-	end
-end
+# RSpec.configure do |config|
+# 	config.after(:each) do 
+# 		DB.exec("DELETE FROM lists *;")
+# 	end
+# end
 
 describe(List) do
 
@@ -27,12 +27,19 @@ describe(List) do
 
 	describe("#save") do
 		it("lets you save lists to the database") do
-			list = List.new({:description = "epicodus stuff", :id => nil})
+			list = List.new({:description => "epicodus stuff", :id => nil})
 			list.save()
-			expect(List.all()).to eq([list])
+			expect(List.all()).to(eq([list]))
 		end
 	end
 
+	describe("#==") do
+		it("is the same list if it has the same description") do
+			list1 = List.new({:description => "epicodus stuff", :id => nil})
+			list2 = List.new({:description => "epicodus stuff", :id => nil})
+			expect(list1).to(eq(list2))
+		end
+	end
 
 
 
