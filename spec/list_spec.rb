@@ -9,6 +9,7 @@
 # 		DB.exec("DELETE FROM lists *;")
 # 	end
 # end
+require("spec_helper")
 
 describe(List) do
 
@@ -41,6 +42,15 @@ describe(List) do
 		end
 	end
 
+	describe(".find") do
+		it("returns a list by its ID") do
+			test_list = List.new({:description => "epicodus stuff", :id => nil})
+			test_list.save()
+			test_list2 = List.new({:description => "home stuff", :id => nil})
+			test_list2.save()
+			expect(List.find(test_list2.id())).to(eq(test_list2))
+		end
+	end
 
 
 end

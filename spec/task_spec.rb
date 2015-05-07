@@ -9,6 +9,7 @@
 # 		DB.exec("DELETE FROM tasks *;")
 # 	end
 # end
+require("spec_helper")
 
 describe(Task) do
 	
